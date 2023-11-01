@@ -18,10 +18,12 @@ You just have to fill in the data in config.json, provide needed input arguments
   - string: "no"/"false" or "yes"/"true"
   - boolean: false or true
 - **PASSWORD:**
+  - null
   - must be base64 encoded
   - if provided as plain text, please enclose it in **"enc()"** or **"encrypt()"**
 - **DATE:** timestamp in iso format or null
-- **USERNAME, IP, PORT, ARCHIVE_NAME, PATH, LABEL, PATH_TO_STORAGE**: must be strings
+- **ARCHIVE_NAME**: string and must end with .zip
+- **USERNAME, IP, PORT, PATH, LABEL, PATH_TO_STORAGE**: must be strings
 - **VERSIONS**: must be int
 
 Note: SSH is optional if there are no remote destinations.
