@@ -1,0 +1,3 @@
+paramiko==3.3.1
+pyzipper==0.3.6
+scp==0.14.5

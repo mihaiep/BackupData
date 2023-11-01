@@ -1,0 +1,25 @@
+{
+	"force": false,
+	"ssh": {
+		"user": "",
+		"password": null,
+		"ip": "",
+		"port": ""
+	},
+	"backup": [
+		{
+			"name": "",
+			"path": "",
+			"password": null,
+			"destination": [
+				{
+					"label": "",
+					"path": "",
+					"remote": false,
+					"versions": 1,
+					"last_run": null
+				}
+			]
+		}
+	]
+}
