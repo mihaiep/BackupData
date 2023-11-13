@@ -4,7 +4,7 @@ import sys
 from typing import Optional, List
 
 from core.type import SSHInfo, Archive
-from misc.logger import LOGGER
+from misc.utils import LOGGER
 from misc.utils import VaultBackupException, convert, handle_password, handle_timestamp, not_none
 
 

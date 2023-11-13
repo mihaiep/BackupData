@@ -1,5 +1,7 @@
-from misc.colors import Colors
-from misc.logger import LOGGER_TEST as LOG
+from melogger import Colors
+from melogger import LoggerBuilder, Levels
+
+LOG = LoggerBuilder.get_logger("VaultBackup-Test", Levels.DEBUG)
 
 
 def log_response(function) -> any:
@@ -19,4 +21,3 @@ def log_response(function) -> any:
                 LOG._log(20, f"Test '{function.__name__}' finished SUCCESSFULLY.", [], extra=extra)
 
     return execute
-

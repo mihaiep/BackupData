@@ -1,7 +1,11 @@
 import base64
+import os.path
 import re
 from datetime import datetime
 from typing import Optional
+from melogger import LoggerBuilder, Levels
+
+LOGGER = LoggerBuilder.get_logger("VaultBackup", Levels.INFO, logs_path=os.path.abspath(".."), file_name="vault_backup.log")
 
 
 class VaultBackupException(Exception):
