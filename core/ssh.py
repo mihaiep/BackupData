@@ -3,7 +3,7 @@ from paramiko.client import SSHClient, AutoAddPolicy
 from scp import SCPClient
 
 from core.type import SSHInfo
-from misc.logger import LOGGER
+from misc.utils import LOGGER
 
 
 class SSHConnection:

@@ -3,7 +3,7 @@ import re
 from datetime import datetime
 from typing import Optional, List
 
-from misc.logger import LOGGER
+from misc.utils import LOGGER
 from misc.utils import password_decrypt, VaultBackupException
 
 

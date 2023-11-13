@@ -7,7 +7,7 @@ import pyzipper
 
 from core.ssh import SSHConnection
 from core.type import Archive, SSHInfo
-from misc.logger import LOGGER
+from misc.utils import LOGGER
 
 
 class BackupExecutor:
