@@ -2,7 +2,7 @@ import json
 
 from core.backup import BackupExecutor
 from core.resolvers import JsonResolver
-from misc.logger import LOGGER
+from misc.utils import LOGGER
 from misc.utils import VaultBackupException
 
 if __name__ == '__main__':
