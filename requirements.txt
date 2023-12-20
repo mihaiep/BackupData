@@ -1,4 +1,4 @@
-git+ssh://git@github.com/mihaiep/melogger.git@v1.0.0
+git+ssh://git@github.com/mihaiep/melogger.git
 
 paramiko==3.3.1
 pyzipper==0.3.6

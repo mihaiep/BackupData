@@ -55,10 +55,8 @@ class JsonResolver:
             if key not in JsonResolver.__ARG_LIST:
                 raise VaultBackupException(f"JSON key '{key}' is not supported.")
             if key == "force":
-                force = convert(bool, self.__data.get(key))
-                if force:
+                if convert(bool, self.__data.get(key)):
                     self.force = True
-                LOGGER.info(f"Force run: {self.force}")
             elif key == "ssh":
                 ssh = self.__data.get(key)
                 self.ssh = SSHInfo(
@@ -98,6 +96,11 @@ class JsonResolver:
             self.ssh.set_password(args_resolver.password_ssh)
         if args_resolver.password is not None:
             [bkp.set_password(args_resolver.password) for bkp in self.backups]
+        if self.force:
+            LOGGER.info(f"Force run: {self.force}")
+        if self.require_ssh:
+            LOGGER.info(f"Require SSH: {self.require_ssh}")
+
 
     def update_last_run_date(self) -> None:
         for bkp in self.backups:

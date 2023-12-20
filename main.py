@@ -3,11 +3,9 @@ import json
 from core.backup import BackupExecutor
 from core.resolvers import JsonResolver
 from misc.utils import LOGGER
-from misc.utils import VaultBackupException
 
 if __name__ == '__main__':
     status_success = False
-    LOGGER.start_execution()
 
     try:
         json_file_path = "config.json"
@@ -19,7 +17,5 @@ if __name__ == '__main__':
 
         open(json_file_path, 'w').writelines(json.dumps(cfg.to_json(), indent='\t'))
         status_success = True
-    except VaultBackupException as bas:
-        LOGGER.critical(bas)
     finally:
-        LOGGER.end_execution(status_success)
+        LOGGER.end_execution()
