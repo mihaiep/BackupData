@@ -15,7 +15,12 @@ class SSHConnection:
 
     def execute(self, command: str) -> tuple[ChannelStdinFile, ChannelFile, ChannelStderrFile]:
         LOGGER.debug(f"Executing SSH command: {command}")
-        return self.client.exec_command(command)
+        stdin, stdout, stderr = self.client.exec_command(command)
+        if stderr.channel.recv_exit_status() != 0:
+            LOGGER.error(f"Cannot execute command: {command}")
+            LOGGER.error(self.client.exec_command(command)[2].read().decode().replace("\\n", "\n"))
+            raise Exception("Runtime error.")
+        return stdin, stdout, stderr
 
     def download(self, remote_source: str, local_destination: str, is_dir: bool):
         self.scp.get(remote_source, local_destination, is_dir, True)

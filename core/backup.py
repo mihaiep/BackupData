@@ -92,7 +92,7 @@ class BackupExecutor:
         LOGGER.info("Cleaning old archives")
         prefix_name = ".".join(archive.name.split(".")[:-1])
         for dst in archive.destinations:
-            files = os.listdir(dst.path) if not dst.remote else list(map(lambda x: x.replace("\n", ""), self.__ssh.execute(f"find '{dst.path}' -type f -d 1")[1]))
+            files = os.listdir(dst.path) if not dst.remote else list(map(lambda x: x.replace("\n", ""), self.__ssh.execute(f"find '{dst.path}' -type f -maxdepth 1")[1]))
             files = filter(lambda x: os.path.isfile(os.path.join(dst.path, x)), files) if not dst.remote else map(lambda x: os.path.relpath(x, dst.path), files)
             files = list(filter(lambda x: x.startswith(prefix_name), files))
 
